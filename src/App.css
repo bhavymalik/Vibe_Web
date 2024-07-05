@@ -1,0 +1,694 @@
+.App{
+  font-family: __Inter_aaf875, __Inter_Fallback_aaf875;
+  font-style: normal;
+}
+
+body::-webkit-scrollbar{
+  background: transparent;
+  width: 15px;
+}
+
+body::-webkit-scrollbar-thumb{
+  background: linear-gradient(rgb(163, 66, 255), rgb(229, 77, 96));
+  border-radius: 20px;
+}
+
+/****************************HEADER****************************************/
+
+.header{
+  background-image: linear-gradient(to right, rgb(163, 66, 255), rgb(229, 77, 96));
+  height: 35px;
+  width: 100%;
+  color: white;
+  font-weight: bolder;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.hush-link{
+  color: white;
+  text-decoration: none;
+  margin-top: 25px;
+}
+
+/*************************************NAVBAR*********************************************/
+
+.mynav{
+  display: flex;
+  background-color: #f5f5f5;
+  height: 60px;
+  box-shadow: inset;
+  position: fixed;
+  width: 100vw;
+  z-index: 2;
+}
+
+.mynav>h1{
+  margin-right: auto;
+  margin-left: 20px;
+  font-weight: bolder;
+  font-size: 50px;
+  margin-top: 5px;
+}
+
+.mysearch{
+  height: 40px;
+  width: 500px;
+  border-radius: 10px;
+  margin-top: 10px;
+  text-indent: 20px;
+  font-size: 20px;
+  background-color: rgb(231, 225, 225);
+}
+
+.svg-icon.search-icon {
+  display: flex;
+  width: 25px;
+  height: 30px;
+  
+  
+
+  /* On hover: blue strokes */
+  &:focus,
+  &:hover {
+    .search-path {
+      stroke: rgb(163, 66, 255);
+    }
+  }
+
+  /* On click: thicker black strokes  */
+  &:active {
+    .search-path {
+      stroke: #111516;
+      stroke-width: 2px;
+    }
+  }
+}
+
+.search-btn{
+  width: 25px;
+  height: 30px;
+  margin-top: 15px;
+  margin-left: -55px;
+  background-color: rgb(231, 225, 225);
+  border: none;
+  cursor: pointer;
+}
+
+.mynav-list{
+  list-style-type: none;
+  padding: 0px 50px;
+  font-weight: 500;
+  margin-right: -30px;
+}
+
+.mynav-list>li{
+  float: left;
+  padding: 16px;
+  font-weight: 500;
+  font-size: 30px;
+  margin-bottom: 20px;
+
+}
+
+
+.fa-user-circle {
+  font-size: 36px;
+  color: rgb(163, 66, 255);
+  cursor: pointer;
+  margin-top: -4px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 55px;
+  right: 40px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  width: 170px;
+}
+
+.dropdown-menu > li {
+  padding: 8px 12px;
+  cursor: pointer;
+  align-self: center;
+  text-align: center;
+}
+
+.dropdown-menu > li:hover {
+  background-color: #f1f1f1;
+}
+
+.myvertnav{
+  display: block;
+  top: 60px;
+  left: 0px;
+  width: 220px;
+  height: 100vh;
+  box-shadow: inset;
+  background-color: #f5f5f5;
+  position: fixed;
+}
+
+.myvertnav-list{
+  padding: 40px 10px;
+}
+
+.myvertnav-list>li{
+  padding: 13px 0px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  margin: 0px;
+
+
+&:hover{
+    background: linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+}
+
+hr{
+  margin: 5px 0px;
+}
+
+.vert-nav-btn{
+  display: inline-flex;
+  border: none;
+  font-size: 24px;
+  color: #111516;
+  margin: 0px 0px;
+  padding: 0%;
+  width: calc(100% - 40px); /* Adjusted width to fit within the vertical nav */
+
+}
+
+
+.fa{
+  margin-right: -50px;
+}
+
+/* Adding the concave curve using clip-path */
+
+
+.card-grid{
+  position: absolute;
+  left: 200px;
+  align-self: center;
+  display: grid;
+  grid-template: auto/1fr 1fr 1fr 1fr;
+  transition: top 0.2s ease;
+  margin-bottom: 200px;
+}
+
+/*****************************************CARD****************************************/
+
+.card {
+  width: auto;
+  height: 620px;
+  box-shadow: 0 3px 6px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  margin: 50px;
+  padding: 10px;
+  z-index: 1;
+  transition: transform 0.2s ease-in-out, z-index 0s, height 0.2s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  white-space: wrap;
+
+  &:hover {
+    transform: scale(1.2);
+    height: auto; /* Adjust height to fit full content */
+    z-index: 10; /* Bring the card to the front */
+  }
+}
+
+
+.card-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* Number of lines to show */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: auto; /* Adjust height to fit content */
+  transition: -webkit-line-clamp 0.2s ease-in-out;
+
+  /* On hover, show full description */
+  .card:hover & {
+    -webkit-line-clamp: unset;
+    white-space: normal;
+  }
+}
+
+.card-photo{
+  width: 100%;
+  height: 400px;
+  transition: opacity 0.5s ease-in-out;
+
+}
+
+.fa-trash{
+  font-size: 24px;
+  color: #878787;
+  right: 10px;
+  margin-left: 300px;
+}
+
+.card-price{
+  margin-top: -15px;
+}
+
+.card-title{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 19px;
+  font-family: Acta Display W01 Book;
+}
+
+.star-photo{
+height: 15px;
+margin-right: 5px;
+}
+
+.star-items{
+display: flex;
+align-items: center;
+margin-top: -20px;
+}
+
+.btn{
+position: relative;
+background-color: #a8a7a7;
+color: white;
+font-size: 12px;
+padding: 5px 2px;
+margin-left: 235px;
+margin-top: 10px;
+border: none;
+cursor: pointer;
+border-radius: 7px;
+width: 90px;
+height: auto;
+}
+
+.btn:hover {
+  background-color: black;
+}
+
+.category-form {
+  position: absolute;
+  left: 40px;
+  top: 10px;
+  width: 300px;
+  height: 80px;
+  margin: 20px; /* Adjust the margin as needed */
+  border-radius: 10px;
+  background-color: #f5f5f5; /* Ensure form background is set */
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+}
+
+select{
+  width: 250px;
+  height: 30px;
+  text-indent: 15px;
+  font-size: larger;
+  border-radius: 10px;
+
+  &:hover{
+    background-color: rgb(231, 225, 225);
+  }
+}
+
+option{
+  height: 25px;
+  text-indent: 15px;
+}
+
+.edit-btn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  margin-left: auto;
+  margin-right: -35px;
+  margin-top: 12px;
+  color: gray;
+}
+
+.fa{
+  width: 100px;
+}
+
+.fa-edit{
+  height: 40px;
+}
+
+.navbar-link{
+  text-decoration: none;
+}
+
+.labelStyle{
+  position: absolute;
+  right: 50px;
+  top: 100px;
+  display: inline-block;
+  width: 220px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  background-color: #111516;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: -10px;
+
+  &:hover{
+    background-image: linear-gradient(to right bottom, rgb(163, 66, 255), rgb(229, 77, 96));;
+  }
+}
+
+.set-catalog {
+  position: absolute;
+  left: 240px;
+  top: 170px;
+  width: 86%;
+  height: auto; /* Adjust the height as needed */
+  background-color: #f5f5f5;
+  display: flex;
+  text-align: left;
+  border: 1px solid blue; /* For debugging */
+  border-radius: 20px;
+  padding: 10px;
+
+}
+
+
+.set-catalog h2 {
+  margin-left: 20px; /* Adjust margin as needed */
+  text-align: left;
+  width: 400px;
+}
+
+.tick-btn{
+  position: absolute;
+  right: 100px;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(65, 254, 65);
+}
+
+.cross-btn{
+  position: absolute;
+  right: 50px;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(243, 11, 11);
+
+}
+
+.product-photo{
+  width: 250px;
+  height: 300px;
+  border-radius: 10px;
+  border: 1px #555;
+  background-color: #ffffff;
+  margin-left: -400px;
+  margin-top: 60px;
+}
+
+.drop-area {
+  width: 250px;
+  height: 280px;
+  border-radius: 15px;
+  border: 3px dashed #bcbcbc;
+  background-color: #ffffff;
+  margin-left: -400px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  padding: 30px 20px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.drop-area.drag-over {
+  width: 250px;
+  height: 280px;
+  border-radius: 15px;
+  border-color: #000;
+  background-color: #ffffff;
+  margin-left: -400px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.drop-area img {
+  width: 255px;
+  height: 285px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  margin-top: -35px;
+  margin-left: -25px;
+}
+
+.drop-area button {
+  color: #000000;
+  border-radius: 5px;
+  border: 1px solid #000000 !important;
+  width: 150px;
+  height: 50px;
+  margin-top: 80px;
+  padding: 10px 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.drop-area input[type="file"] {
+  display: none;
+}
+
+.product-grid{
+  display: grid;
+  grid-template: auto/ 1fr 1fr 1fr;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.product-grid input{
+  position: relative;
+  width: 400px;
+  height: 40px;
+  border: 1px rgb(69, 120, 171);
+  border-radius: 15px;
+  margin-left: 40px; /* Adjust margin as needed */
+  background-color: #ccc;
+
+}
+
+.product-add{
+    position: absolute;
+    right: 280px;
+    top: 100px;
+    display: inline-block;
+    width: 220px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    background-color: #111516;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: -10px;
+  
+    &:hover{
+      background-image: linear-gradient(to right bottom, rgb(163, 66, 255), rgb(229, 77, 96));;
+    }
+}
+
+.addproduct-span{
+  color: #000000 !important;
+  align-self: center;
+  display: flex;
+  margin-left: 50px;
+}
+
+.pagination {
+  position: absolute;
+  right: 50px;
+  display: flex;
+  justify-content: center;
+  width: 25%; /* Full width */
+  background-color: rgb(255, 255, 255); /* Background color to make it visible */
+  margin-top: 50px;
+  padding: 10px 0px; /* Padding for spacing */
+}
+
+
+.catalog {
+  min-height: calc(100vh+200px); /* Ensure at least full viewport height */
+  position: relative; /* Establishes positioning context for absolute child */
+}
+
+
+.pagination button {
+  margin-bottom: 30px;
+  margin-top: -100px;
+  margin-right: 10px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #9c9c9c;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #ddd;
+}
+
+.pagination .active {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination .disabled {
+  background-color: #9a9a9a;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+/*---------------------------------ANALYTICS--------------------------------------------*/
+
+.numeric-value{
+  position: absolute;
+  top: 80px;
+  left: 220px;
+  display: flex;
+  width: 88.5vw;
+  height: auto;
+}
+
+.numeric-box{
+  position: relative;
+  min-width: 250px;
+  width: 300px;
+  height: 170px;
+  margin: 0px 60px;
+  padding: 10px 0px;
+  border-radius: 20px;
+  border-color: #f5f5f5;
+  cursor: pointer;
+  background-color: #cf23cf;
+  font-size: 26px;
+  text-indent: 30px;
+}
+
+/*************************************CONTACTS*************************************************/
+
+.contacts-cont{
+  position: absolute;
+  top: 60px;
+  left: 220px;
+  width: 88vw;
+  height: auto;
+  padding: 20px 20px;
+  background-color: white;
+}
+
+.contact-import{
+  position: absolute;
+  left: 70px;
+  top: 70px;
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  background-color: rgb(163, 66, 255);
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: -10px;
+
+  &:hover{
+    background-image: linear-gradient(to right bottom, rgb(163, 66, 255), rgb(229, 77, 96));;
+  }
+}
+
+.contact-new{
+  position: absolute;
+  left: 230px;
+  top: 70px;
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  background-color: rgb(163, 66, 255);
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: -10px;
+
+  &:hover{
+    background-image: linear-gradient(to left bottom, rgb(163, 66, 255), rgb(229, 77, 96));;
+  }
+}
+
+.contact-table{
+  width: 70vw;
+  height: 70vh;
+  padding: 30px 10px;
+  margin-top: 100px;
+  margin-left: 50px;
+  background-color:  rgb(255, 255, 255);
+  border-collapse: collapse;
+}
+
+.contact-table-head-cell{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(163, 66, 255);
+  color: white;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.contact-table tr:nth-child(even){background-color: #f2f2f2;}
+
+.contact-table-row-cells{
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.contact-table-cell-content{
+ display: flex;
+ flex-direction: row;
+}
+
+.contact-checkbox{
+  cursor: pointer;
+  margin-left: -40px;
+  margin-right: -40px;
+  transform: scale(1.4); /* Adjust the scale value as needed */
+
+}
